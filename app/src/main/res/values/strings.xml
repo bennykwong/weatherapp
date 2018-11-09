@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="dark_sky_api_key">50858e952661b72f783f40b993c6aed2</string>
+
 </resources>
