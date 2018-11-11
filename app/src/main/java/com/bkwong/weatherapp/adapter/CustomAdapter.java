@@ -1,6 +1,8 @@
 package com.bkwong.weatherapp.adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,8 +24,10 @@ import java.util.List;
 public class CustomAdapter extends RecyclerView.Adapter<RecycleViewHolder> {
 
     private static List<WeatherResponse> dataSet = new ArrayList<>();
+    private Context context;
 
-    public CustomAdapter(){
+    public CustomAdapter(Context context){
+        this.context = context;
     }
 
     @NonNull
@@ -55,6 +59,40 @@ public class CustomAdapter extends RecyclerView.Adapter<RecycleViewHolder> {
             Log.d("benny", "icon:" + dataSet.get(i).getCurrently().getIcon());
             //clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
             textViewSummary.setText(summaryText);
+
+            //set weather icon
+            switch (dataSet.get(i).getDaily().getData().get(0).getIcon()) {
+                case "clear-day":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.clear_day));
+                    break;
+                case "clear-night":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.clear_night));
+                    break;
+                case "rain":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.rain));
+                    break;
+                case "snow":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.snow));
+                    break;
+                case "sleet":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sleet));
+                    break;
+                case "wind":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.wind));
+                    break;
+                case "fog":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.fog));
+                    break;
+                case "cloudy":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.cloudy));
+                    break;
+                case "partly-cloudy-day":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.partly_cloudy_day));
+                    break;
+                case "partly-cloudy-night":
+                    imageViewWeatherIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.partly_cloudy_night));
+                    break;
+            }
         }
     }
 

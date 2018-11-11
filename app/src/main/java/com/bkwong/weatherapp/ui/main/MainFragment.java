@@ -53,7 +53,7 @@ public class MainFragment extends Fragment {
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mAdapter = new CustomAdapter();
+        mAdapter = new CustomAdapter(getActivity().getApplicationContext());
         mRecyclerView.setAdapter(mAdapter);
 
         return view;
