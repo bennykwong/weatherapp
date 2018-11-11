@@ -2,6 +2,7 @@ package com.bkwong.weatherapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 
 import com.bkwong.weatherapp.ui.main.MainFragment;
 
@@ -17,4 +18,11 @@ public class MainActivity extends AppCompatActivity {
                     .commitNow();
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
 }

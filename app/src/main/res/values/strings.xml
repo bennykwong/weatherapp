@@ -2,5 +2,10 @@
     <string name="app_name">WeatherApp</string>
     <string name="dark_sky_api_key">50858e952661b72f783f40b993c6aed2</string>
     <string name="license">Powered by Dark Sky</string>
+    <string name="city_irvine">Irvine</string>
+    <string name="city_los_angeles">Los Angeles</string>
+    <string name="city_san_francisco">San Francisco</string>
+    <string name="city_new_york">New York</string>
+    <string name="city_weather" formatted="true">%s\'s past week weather</string>
 
 </resources>

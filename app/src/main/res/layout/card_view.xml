@@ -43,7 +43,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:text="weather_info1_placeholder"
                     android:textStyle="bold"
                     android:textAppearance="?android:attr/textAppearanceMedium"/>
 
@@ -53,7 +52,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_marginTop="10dp"
-                    android:text="weather_info2_placeholder"
                     android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <TextView
@@ -62,7 +60,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_marginTop="10dp"
-                    android:text="weather_info3_placeholder"
                     android:textStyle="italic"
                     android:textAppearance="?android:attr/textAppearanceSmall"/>
 
