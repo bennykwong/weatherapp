@@ -36,9 +36,10 @@ public class MainFragment extends Fragment {
     private String TAG = MainFragment.class.getSimpleName();
 
     private CustomAdapter mAdapter;
-
     private HashMap<String, Place> placeMap = new HashMap<>();
     private TextView textViewCity;
+    private int currentSelectedItem;
+
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -86,6 +87,7 @@ public class MainFragment extends Fragment {
         if(savedInstanceState == null) {
            textViewCity.setText(getResources().getString(R.string.city_weather, getResources().getString(R.string.city_irvine)));
            getWeatherData(placeMap.get(getResources().getString(R.string.city_irvine)));
+           currentSelectedItem = R.id.city_irvine;
         }
     }
 
@@ -134,24 +136,37 @@ public class MainFragment extends Fragment {
         int id = item.getItemId();
         switch (id) {
             case R.id.city_irvine:
-                mAdapter.clearData();
-                textViewCity.setText(getResources().getString(R.string.city_weather, getResources().getString(R.string.city_irvine)));
-                getWeatherData(placeMap.get(getResources().getString(R.string.city_irvine)));
+                //prevent duplicated request if weather info is already present
+                if (currentSelectedItem != id) {
+                    mAdapter.clearData();
+                    textViewCity.setText(getResources().getString(R.string.city_weather, getResources().getString(R.string.city_irvine)));
+                    getWeatherData(placeMap.get(getResources().getString(R.string.city_irvine)));
+                    currentSelectedItem = id;
+                }
                 return true;
             case R.id.city_los_angeles:
-                mAdapter.clearData();
-                textViewCity.setText(getResources().getString(R.string.city_weather, getResources().getString(R.string.city_los_angeles)));
-                getWeatherData(placeMap.get(getResources().getString(R.string.city_los_angeles)));
+                if (currentSelectedItem != id) {
+                    mAdapter.clearData();
+                    textViewCity.setText(getResources().getString(R.string.city_weather, getResources().getString(R.string.city_los_angeles)));
+                    getWeatherData(placeMap.get(getResources().getString(R.string.city_los_angeles)));
+                    currentSelectedItem = id;
+                }
                 return true;
             case R.id.city_san_francisco:
-                mAdapter.clearData();
-                textViewCity.setText(getResources().getString(R.string.city_weather, getResources().getString(R.string.city_san_francisco)));
-                getWeatherData(placeMap.get(getResources().getString(R.string.city_san_francisco)));
+                if (currentSelectedItem != id) {
+                    mAdapter.clearData();
+                    textViewCity.setText(getResources().getString(R.string.city_weather, getResources().getString(R.string.city_san_francisco)));
+                    getWeatherData(placeMap.get(getResources().getString(R.string.city_san_francisco)));
+                    currentSelectedItem = id;
+                }
                 return true;
             case R.id.city_new_york:
-                mAdapter.clearData();
-                textViewCity.setText(getResources().getString(R.string.city_weather, getResources().getString(R.string.city_new_york)));
-                getWeatherData(placeMap.get(getResources().getString(R.string.city_new_york)));
+                if (currentSelectedItem != id) {
+                    mAdapter.clearData();
+                    textViewCity.setText(getResources().getString(R.string.city_weather, getResources().getString(R.string.city_new_york)));
+                    getWeatherData(placeMap.get(getResources().getString(R.string.city_new_york)));
+                    currentSelectedItem = id;
+                }
                 return true;
         }
         return super.onOptionsItemSelected(item);
